@@ -2,10 +2,13 @@
 // or project specific include files.
 
 #pragma once
-
 #include <iostream>
 
-int stringToInt(char *string, int* dest);
+/* HEADERS */
+#include <conversion/conversion.h>
+
+
+
 
 
 // TODO: Reference additional headers your program requires here.
