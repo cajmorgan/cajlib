@@ -84,26 +84,6 @@ int str_is_identical(char* string_one, char* string_two) {
     return 1;
 }
 
-void reverse_string(char string[]) {
-    char temp;
-    int string_max_index, index, last_index;
-    string_max_index = index = last_index = 0;
-
-    while (string[string_max_index] != '\0') {
-        string_max_index++;
-    }
-
-    string_max_index--;
-    last_index = string_max_index;
-
-    while (index <= last_index) {
-        temp = string[index];
-        string[index] = string[last_index];
-        string[last_index] = temp;
-        index++;
-        last_index--;
-    }
-}
 
 /******\
  *
@@ -147,6 +127,6 @@ void printBinary(unsigned decimal) {
         remainder = bytes[i - 1];
     }
 
-    reverse_string(bytes);
+    //reverse_string(bytes);
     printf("%s", bytes);
 }

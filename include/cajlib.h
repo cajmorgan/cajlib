@@ -6,8 +6,7 @@
 
 /* HEADERS */
 #include <conversion/conversion.h>
-
-
+#include <string/string.h>
 
 
 

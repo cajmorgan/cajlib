@@ -11,11 +11,13 @@ include_directories(include)
 set (SOURCES 
 	"${CMAKE_SOURCE_DIR}/src/cajlib.cpp"
 	"${CMAKE_SOURCE_DIR}/src/conversion/conversion.cpp"
+	"${CMAKE_SOURCE_DIR}/src/string/string.cpp"
 )
 
 set (HEADERS
 	"${CMAKE_SOURCE_DIR}/include/cajlib.h"
 	"${CMAKE_SOURCE_DIR}/include/conversion/conversion.h"
+	"${CMAKE_SOURCE_DIR}/include/string/string.h"
 )
 
 # Add source to this project's executable.
@@ -24,3 +26,20 @@ add_executable(testcajlib "testcajlib.cpp")
 target_link_libraries(testcajlib PRIVATE cajlib)
 
 # TODO: Add tests and install targets if needed.
+enable_testing()
+
+add_test(NAME works COMMAND testcajlib)
+set_tests_properties(works
+  PROPERTIES PASS_REGULAR_EXPRESSION "works..."
+  )
+
+function(do_test target test_name arg result)	
+	add_test(NAME ${test_name} COMMAND testcajlib ${test_name} ${arg})
+	set_tests_properties(
+		${test_name}
+		PROPERTIES PASS_REGULAR_EXPRESSION ${result}
+	 )
+endfunction()
+
+do_test(testcajlib "stringToInt" "192" "result: 192")
+do_test(testcajlib "intToString" "100321" "result: 100321")
