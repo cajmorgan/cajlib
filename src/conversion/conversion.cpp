@@ -2,6 +2,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <math.h>
 #include <conversion/conversion.h>
 #include <string/string.h>
 /* String to Int */
@@ -39,4 +40,43 @@ int intToString(int number, char* dest) {
     strcpy(dest, reversedNumber);
 
     return 0;
+}
+
+void decimalToBinary(unsigned decimal, char* bytes) {
+    const int NUMBER_BYTES = 50;
+    //char bytes[NUMBER_BYTES] = { '\0' };
+    int spaceCounter = 1;
+
+    for (int i = 0; i < NUMBER_BYTES; i++) {
+        bytes[i] = '0';
+        int remainder = 0;
+        if (spaceCounter % 5 == 0) {
+            bytes[i] = ' ';
+            spaceCounter = 1;
+            continue;
+        }
+
+        remainder = decimal % 2;
+        decimal = floor(decimal / 2);
+        if (remainder == 1) {
+            bytes[i] = '1';
+        }
+
+        spaceCounter++;
+    }
+
+    char remainder = '0';
+    for (int i = NUMBER_BYTES; i >= 0; i--) {
+        if (remainder == '1')
+            break;
+
+        if (i % 5 == 0) {
+            bytes[i - 1] = '\0';
+            continue;
+        }
+
+        remainder = bytes[i - 1];
+    }
+
+    reverseString(bytes);
 }

@@ -9,7 +9,6 @@ include_directories(include)
 
 #Sources
 set (SOURCES 
-	"${CMAKE_SOURCE_DIR}/src/cajlib.cpp"
 	"${CMAKE_SOURCE_DIR}/src/conversion/conversion.cpp"
 	"${CMAKE_SOURCE_DIR}/src/string/string.cpp"
 )
@@ -43,3 +42,5 @@ endfunction()
 
 do_test(testcajlib "stringToInt" "192" "result: 192")
 do_test(testcajlib "intToString" "100321" "result: 100321")
+do_test(testcajlib "addChar" "yo" "result: yolo")
+do_test(testcajlib "decimalToBinary" "543765" "result: 1000 0100 1100 0001 0101")

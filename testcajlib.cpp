@@ -21,6 +21,20 @@ int main(int argv, char *argc[]) {
 
 			printf("result: %s", dest);
 		}
+		else if (strcmp("addChar", argc[1]) == 0) {
+			char dest[16] = { '\0' };
+			strcpy(dest, argc[2]);
+			addChar(dest, 'l', 16);
+			addChar(dest, 'o', 16);
+			printf("result: %s", dest);
+		}
+		else if (strcmp("decimalToBinary", argc[1]) == 0) {
+			char bytes[50] = { '\0' };
+			int dest = 0;
+			stringToInt(argc[2], &dest);
+			decimalToBinary(dest, bytes);
+			printf("result: %s", bytes);
+		}
 
 	}
 
