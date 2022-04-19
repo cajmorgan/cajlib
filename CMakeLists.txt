@@ -9,14 +9,14 @@ include_directories(include)
 
 #Sources
 set (SOURCES 
-	"${CMAKE_SOURCE_DIR}/src/conversion/conversion.cpp"
-	"${CMAKE_SOURCE_DIR}/src/string/string.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/conversion/conversion.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/string/string.cpp"
 )
 
 set (HEADERS
-	"${CMAKE_SOURCE_DIR}/include/cajlib.h"
-	"${CMAKE_SOURCE_DIR}/include/conversion/conversion.h"
-	"${CMAKE_SOURCE_DIR}/include/string/string.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/include/cajlib.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/include/conversion/conversion.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/include/string/string.h"
 )
 
 # Add source to this project's executable.
